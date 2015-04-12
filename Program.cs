@@ -549,9 +549,9 @@ namespace KurisuNidalee
                 }
 
                 // force transform if q ready and no collision 
-                if (CQ != 0 && HQ == 0 && _mainMenu.Item("usecougarr").GetValue<bool>())
-                {
-                    if (!Aspectofcougar.IsReady())
+				if ((target.Distance(Me.ServerPosition, true) <= 250*250 && CQ != 0 && HQ == 0 && _mainMenu.Item("usecougarr").GetValue<bool>()) || (target.Distance(Me.ServerPosition, true) > 250 && HQ == 0 && _mainMenu.Item("usecougarr").GetValue<bool>())) 
+				    {
+					if (!Aspectofcougar.IsReady())
                     {
                         return;
                     }
