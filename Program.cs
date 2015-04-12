@@ -530,12 +530,12 @@ namespace KurisuNidalee
 
                 // Check is pounce is ready 
                 if ((CW == 0 || Pounce.IsReady()) && _mainMenu.Item("usecougarw").GetValue<bool>()
-                    && (target.Distance(Me.ServerPosition, true) > 300*300 || CougarDamage(target) >= target.Health))
+                    && (target.Distance(Me.ServerPosition, true) > 250*250 || CougarDamage(target) >= target.Health))
                 {
-					if (TargetHunted(target) & target.Distance(Me.ServerPosition, true) <= 750*750 && target.Distance(Me.ServerPosition, true) > 250*250
-                        Pounce.Cast(target.ServerPosition));
-                    else if (target.Distance(Me.ServerPosition, true) <= 400*400 && target.Distance(Me.ServerPosition, true) > 250*250
-                        Pounce.Cast(target.ServerPosition));
+                    if (TargetHunted(target) & target.Distance(Me.ServerPosition, true) <= 750*750 & target.Distance(Me.ServerPosition, true) >= 300*300)
+                        Pounce.Cast(target.ServerPosition);
+                    else if (target.Distance(Me.ServerPosition, true) <= 400*400 & target.Distance(Me.ServerPosition, true) >= 300*300)
+                        Pounce.Cast(target.ServerPosition);
 
                 }
 
@@ -543,7 +543,10 @@ namespace KurisuNidalee
                 if ((CE == 0 || Swipe.IsReady()) && _mainMenu.Item("usecougare").GetValue<bool>())
                 {
                     if (target.Distance(Me.ServerPosition, true) <= Swipe.RangeSqr)
+                    {
+                        if (!Pounce.IsReady() || NotLearned(Pounce))
                             Swipe.Cast(target.ServerPosition);
+                    }
                 }
 
                 // force transform if q ready and no collision 
@@ -789,19 +792,20 @@ namespace KurisuNidalee
             {
                 if (m.Distance(Me.ServerPosition, true) <= Swipe.RangeSqr && CE == 0)
                 {
-                    if (_mainMenu.Item("jgcougare").GetValue<bool>())
+                    if (_mainMenu.Item("jgcougare").GetValue<bool>() &&
+                       (!Pounce.IsReady() || NotLearned(Pounce)))
                     {
                         Swipe.Cast(m.ServerPosition);
                     }
                 }
 
-				if (TargetHunted(m) & m.Distance(Me.ServerPosition, true) <= 750*750 && m.Distance(Me.ServerPosition, true) >= 125 && (CW == 0 || Pounce.IsReady()))
+                if (TargetHunted(m) & m.Distance(Me.ServerPosition, true) <= 750*750 && (CW == 0 || Pounce.IsReady()))
                 {
                     if (_mainMenu.Item("jgcougarw").GetValue<bool>())
                         Pounce.Cast(m.ServerPosition);
                 }
 
-				else if (m.Distance(Me.ServerPosition, true) <= 400*400 && m.Distance(Me.ServerPosition, true) >= 125 && (CW == 0 || Pounce.IsReady()))
+                else if (m.Distance(Me.ServerPosition, true) <= 400*400 && (CW == 0 || Pounce.IsReady()))
                 {
                     if (_mainMenu.Item("jgcougarw").GetValue<bool>())
                         Pounce.Cast(m.ServerPosition);
