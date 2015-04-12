@@ -544,7 +544,6 @@ namespace KurisuNidalee
                 {
                     if (target.Distance(Me.ServerPosition, true) <= Swipe.RangeSqr)
                     {
-                        if (!Pounce.IsReady() || NotLearned(Pounce))
                             Swipe.Cast(target.ServerPosition);
                     }
                 }
@@ -816,8 +815,7 @@ namespace KurisuNidalee
                         Takedown.CastOnUnit(Me);
                 }
 
-                if ((CW != 0 || !Pounce.IsReady() || NotLearned(Pounce)) &&       
-                    (CQ != 0 || NotLearned(Takedown)) && 
+                if ((CQ != 0 || NotLearned(Takedown)) && 
                     (CE != 0 || NotLearned(Primalsurge)))
                 {
                     if ((HQ == 0 || HE == 0 && Me.Health/Me.MaxHealth*100 <= 
