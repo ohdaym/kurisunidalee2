@@ -606,6 +606,10 @@ namespace KurisuNidalee
 					{
 					Aspectofcougar.Cast();
 					}
+				if (Aspectofcougar.IsReady() && _mainMenu.Item("usecougarr").GetValue<bool>() && CW == 0 && target.Distance(Me.ServerPosition, true) <= 400*400)
+				{
+					Aspectofcougar.Cast();
+				}
 				if (Aspectofcougar.IsReady() && _mainMenu.Item("usecougarr").GetValue<bool>()
                     && (TargetHunted(target) || target.Health <= CougarDamage(target) && (HQ != 0 || !Javelin.IsReady())))
                 {
