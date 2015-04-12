@@ -530,7 +530,7 @@ namespace KurisuNidalee
 
                 // Check is pounce is ready 
                 if ((CW == 0 || Pounce.IsReady()) && _mainMenu.Item("usecougarw").GetValue<bool>()
-                    && (target.Distance(Me.ServerPosition, true) > 250*250 || CougarDamage(target) >= target.Health))
+                    && (target.Distance(Me.ServerPosition, true) > 300*300 || CougarDamage(target) >= target.Health))
                 {
                     if (TargetHunted(target) & target.Distance(Me.ServerPosition, true) <= 750*750 & target.Distance(Me.ServerPosition, true) >= 250*250)
                         Pounce.Cast(target.ServerPosition);
@@ -549,7 +549,7 @@ namespace KurisuNidalee
                 }
 
                 // force transform if q ready and no collision 
-				if ((target.Distance(Me.ServerPosition, true) <= 250*250 && CQ != 0 && CW != 0 && HQ == 0 && _mainMenu.Item("usecougarr").GetValue<bool>()) || (target.Distance(Me.ServerPosition, true) > 250 && HQ == 0 && _mainMenu.Item("usecougarr").GetValue<bool>())) 
+				if ((target.Distance(Me.ServerPosition, true) <= 300*300 && CQ != 0 && CE != 0 && HQ == 0 && _mainMenu.Item("usecougarr").GetValue<bool>()) || (target.Distance(Me.ServerPosition, true) > 300 && CW != 0 && HQ == 0 && _mainMenu.Item("usecougarr").GetValue<bool>())) 
 				    {
 					if (!Aspectofcougar.IsReady())
                     {
