@@ -602,7 +602,11 @@ namespace KurisuNidalee
             if (!_cougarForm && target.IsValidTarget(Javelin.Range))
             {
                 // Switch to cougar if target hunted or can kill target 
-                if (Aspectofcougar.IsReady() && _mainMenu.Item("usecougarr").GetValue<bool>()
+				if (Aspectofcougar.IsReady() && _mainMenu.Item("usecougarr").GetValue<bool>() && HQ != 0 && target.Distance(Me.ServerPosition, true) <= 400*400)
+					{
+						Aspectofcougar.Cast()
+					}
+				if (Aspectofcougar.IsReady() && _mainMenu.Item("usecougarr").GetValue<bool>()
                     && (TargetHunted(target) || target.Health <= CougarDamage(target) && (HQ != 0 || !Javelin.IsReady())))
                 {
                     // e/q dont reset CQ/CE timer is safe
@@ -626,8 +630,6 @@ namespace KurisuNidalee
                     }
                 }
             }
-			if (Aspectofcougar.IsReady() && _mainMenu.Item("usecougarr").GetValue<bool>() && HQ != 0 && target.Distance(Me.ServerPosition, true) <= 400*400)
-				Aspectofcougar.Cast();
 		}
 		#endregion
 		
