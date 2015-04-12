@@ -792,8 +792,7 @@ namespace KurisuNidalee
             {
                 if (m.Distance(Me.ServerPosition, true) <= Swipe.RangeSqr && CE == 0)
                 {
-                    if (_mainMenu.Item("jgcougare").GetValue<bool>() &&
-                       (!Pounce.IsReady() || NotLearned(Pounce)))
+                    if (_mainMenu.Item("jgcougare").GetValue<bool>())
                     {
                         Swipe.Cast(m.ServerPosition);
                     }
