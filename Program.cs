@@ -549,7 +549,7 @@ namespace KurisuNidalee
                 }
 
                 // force transform if q ready and no collision 
-                if (HQ == 0 && _mainMenu.Item("usecougarr").GetValue<bool>())
+                if (CQ != 0 && HQ == 0 && _mainMenu.Item("usecougarr").GetValue<bool>())
                 {
                     if (!Aspectofcougar.IsReady())
                     {
@@ -797,13 +797,13 @@ namespace KurisuNidalee
                     }
                 }
 
-                if (TargetHunted(m) & m.Distance(Me.ServerPosition, true) <= 750*750 & m.Distance(Me.ServerPosition, true) >= 250*250 && (CW == 0 || Pounce.IsReady()))
+                if (TargetHunted(m) & m.Distance(Me.ServerPosition, true) <= 750*750 & m.Distance(Me.ServerPosition, true) >= 300*300 && (CW == 0 || Pounce.IsReady()))
                 {
                     if (_mainMenu.Item("jgcougarw").GetValue<bool>())
                         Pounce.Cast(m.ServerPosition);
                 }
 
-                else if (m.Distance(Me.ServerPosition, true) <= 400*400 & m.Distance(Me.ServerPosition, true) >= 250*250 && (CW == 0 || Pounce.IsReady()))
+                else if (m.Distance(Me.ServerPosition, true) <= 400*400 & m.Distance(Me.ServerPosition, true) >= 300*300 && (CW == 0 || Pounce.IsReady()))
                 {
                     if (_mainMenu.Item("jgcougarw").GetValue<bool>())
                         Pounce.Cast(m.ServerPosition);
